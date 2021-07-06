@@ -27,3 +27,7 @@ body {
 #main-container {
     background-color: var(--mytheme-secondary-color);
 }
+
+.card {
+    padding: 2%;
+}
