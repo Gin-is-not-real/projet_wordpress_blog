@@ -8,8 +8,10 @@
 
 */
 :root {
-    --mytheme-primary-color: brown;
-    --mytheme-secondary-color: grey;
+    --mytheme-color-1: brown;
+    --mytheme-color-2: grey;
+    --mytheme-color-3: rgb(114, 166, 201);
+
 }
 html * {
     border-radius: border-box;
@@ -17,17 +19,50 @@ html * {
     padding: 0;
 }
 body {
-    background-color: var(--mytheme-secondary-color);
+    background-color: var(--mytheme-color-2);
 }
 
 #general-header {
-    background-color: var(--mytheme-primary-color);
+    background-color: var(--mytheme-color-1);
     padding: 2%;
 }
 #main-container {
-    background-color: var(--mytheme-secondary-color);
+    background-color: var(--mytheme-color-2);
 }
 
 .card {
+    margin: 2%;
     padding: 2%;
+    width: 50%;
+    border: 1px solid black;
+}
+
+/* home */
+#home-main {
+    display: flex;
+    flex-direction: column;
+}
+
+.page-container > header {
+    background-color: var(--mytheme-color-3);
+    height: 20vh;
+}
+#articles-container {
+    width: 50vw;
+}
+.article-card {
+    margin: 2%;
+    border: 1px solid black;
+}
+.article-card * {
+    padding: 2%;
+}
+
+.article-card > header {
+    padding: 2%;
+    background-color: rgba(0, 0, 0, 0.302);
+}
+
+#home-content {
+
 }
