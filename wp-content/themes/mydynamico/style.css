@@ -1,0 +1,36 @@
+/*
+    Theme Name: mydynamico
+    Description: child theme from dynamico
+    Author: gin
+    Author URI: 
+    Template: dynamico
+    Version: 0.1.0
+*/
+
+:root {
+	--dynamico--header-background-color: #bd2d2d;
+    --dynamico--site-title-color: #3c434a;
+}
+
+@media only screen and (min-width: 480px) {
+	.site-content {
+		padding: 0;
+	}
+}
+@media only screen and (min-width: 640px) {
+	.site-content {
+        padding: 0;
+	}
+}
+
+@media only screen and (min-width: 960px) { 
+	.site-content {
+        padding: 0;
+	}
+}
+
+@media only screen and (min-width: 1280px) {
+	.site-content {
+		padding: 0;
+	}
+}
