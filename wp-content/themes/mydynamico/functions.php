@@ -9,6 +9,8 @@ function theme_enqueue_styles() {
 
 /*
     la fonction pour enregistrer un nouveau type de post
+    Pour l'affichage de nos CTP, wp cherchera ces templates dans l'ordre:
+        -> single-{slug du ctp}.php  -> single.php -> un temp par default (index.php)
 */
 function apprenant_register_post_types() {
     $labels = array(
@@ -47,12 +49,65 @@ function apprenant_register_post_types() {
         'menu_position' => 6, 
         'menu_icon' => 'dashicons-welcome-widgets-menus',
     );
-	register_post_type( 'projet', $args );
+	register_post_type( 'projets', $args );
 }
 add_action( 'init', 'apprenant_register_post_types' ); // Le hook init lance la fonction
 
 
+////////////////////////////////////////////////////////////////////////////
+//AJOUTER TAXONOMIES
+add_action( 'init', 'wpm_add_taxonomies', 0 );
+//On crée une taxonomie personnalisée pour projets: Technos
+
+function wpm_add_taxonomies() {
+	// Taxonomie Technos
+	// On déclare ici les différentes dénominations de notre taxonomie qui seront affichées et utilisées dans l'administration de WordPress
+	$labels_technos = array(
+		'name'              			=> _x( 'Technos', 'taxonomy general name'),
+		'singular_name'     			=> _x( 'Techno', 'taxonomy singular name'),
+		'search_items'      			=> __( 'Chercher une techno'),
+		'all_items'        				=> __( 'Toutes les technos'),
+		'edit_item'         			=> __( 'Editer la techno'),
+		'update_item'       			=> __( 'Mettre à jour la techno'),
+		'add_new_item'     				=> __( 'Ajouter une nouvelle techno'),
+		'new_item_name'     			=> __( 'Valeur de la nouvelle techno'),
+		'separate_items_with_commas'	=> __( 'Séparer les technos avec une virgule'),
+		'menu_name'         => __( 'Technos'),
+	);
+	$args_technos = array(
+	// Si 'hierarchical' est défini à false, notre taxonomie se comportera comme une étiquette standard
+		'hierarchical'      => false,
+		'labels'            => $labels_technos,
+		'show_ui'           => true,
+		'show_in_rest' => true,
+		'show_admin_column' => true,
+		'query_var'         => true,
+		'rewrite'           => array( 'slug' => 'technos' ),
+	);
+	register_taxonomy( 'technos', 'projets', $args_technos );
+
+	
+	// $labels_cat_serie = array(
+	// 	'name'                       => _x( 'Catégories de série', 'taxonomy general name'),
+	// 	'singular_name'              => _x( 'Catégories de série', 'taxonomy singular name'),
+	// 	'search_items'               => __( 'Rechercher une catégorie'),
+	// 	'popular_items'              => __( 'Catégories populaires'),
+	// 	'all_items'                  => __( 'Toutes les catégories'),
+	// 	'edit_item'                  => __( 'Editer une catégorie'),
+	// 	'update_item'                => __( 'Mettre à jour une catégorie'),
+	// 	'add_new_item'               => __( 'Ajouter une nouvelle catégorie'),
+	// 	'new_item_name'              => __( 'Nom de la nouvelle catégorie'),
+	// 	'add_or_remove_items'        => __( 'Ajouter ou supprimer une catégorie'),
+	// 	'choose_from_most_used'      => __( 'Choisir parmi les catégories les plus utilisées'),
+	// 	'not_found'                  => __( 'Pas de catégories trouvées'),
+	// 	'menu_name'                  => __( 'Catégories de série'),
+	// );
+}
+
+
 /*** ajouter la fonction pour dupliquer les posts sans plugin ***/
+/* fonctionne malgrés les erreurs relevées par inteliphens	*/
+
 function dupliquer_sans_plugin(){
     global $wpdb;
     if (! ( isset( $_GET['post']) || isset( $_POST['post']) || ( isset($_REQUEST['action']) && 'dupliquer_sans_plugin' == $_REQUEST['action'] ) ) ) {
@@ -92,7 +147,6 @@ function dupliquer_sans_plugin(){
         $post_terms = wp_get_object_terms($post_id, $taxonomy, array('fields' => 'slugs'));
         wp_set_object_terms($new_post_id, $post_terms, $taxonomy, false);
     }
- 
         $post_meta_infos = get_post_meta( $post_id ); // correction du 9 février 2017
  
         wp_redirect( admin_url( 'post.php?action=edit&post=' . $new_post_id ) );
@@ -111,5 +165,4 @@ function dupliquer_le_post( $actions, $post ) {
     }
     return $actions;
 }
- 
 add_filter( 'post_row_actions', 'dupliquer_le_post', 10, 2 );
