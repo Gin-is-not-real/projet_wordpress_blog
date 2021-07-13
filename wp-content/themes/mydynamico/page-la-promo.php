@@ -23,31 +23,22 @@ Template Name: Page Promo
 
 	<div class="entry-content">
 	<?php 
-
 		// le contenu defini dans wordpress
 		the_content();
-
 		// $query = new Wp_Query(array('author'));
 		// if($query->have_posts()) {
 		// 	echo '<ul>';
 		// 	while($query->have_posts() ) {
 		// 		$query->the_post();
-
 		// 		// get the author ID
 		// 		echo '<li>meta(ID): ' . get_the_author_meta('ID') . '</li>';
 		// 		echo '<li>meta(description): ' . get_the_author_meta('description') . '</li>';
 		// 		echo '<li>meta(user_description): ' . get_the_author_meta('user_description') . '</li>';
 		// 		echo '<li>meta(user_email): ' . get_the_author_meta('user_email') . '</li>';
-
-
 		// 		echo '<li>author: ' . get_the_author() . '</li>';
-
 		// 		echo '<br>';
-
 		// 	}
 		// 	echo '</ul>';
-
-
 		// } else {
 		// 	//no posts found
 		// }
@@ -56,25 +47,33 @@ Template Name: Page Promo
 
 		//test vers table perso
 		$mydb = new wpdb('admin', 'admin', 'wp2_bdd', 'localhost');
-		$rows = $mydb->get_results("SELECT * FROM wp2_testapprenants");
+		$apprenants = $mydb->get_results("SELECT * FROM wp2_apprenants");
 
-		foreach($rows as $obj) : 
+		foreach($apprenants as $apprenant) : 
 			echo '<ul>';
 
-			//$obj est un un objet stdClass. ces index sont les noms des colonnes 
-			// print_r($obj);
+				//$apprenant est un un objet stdClass. ces index sont les noms des colonnes 
+				// print_r($apprenant);
+				$id_author = $apprenant->id_author;
+				$users = $mydb->get_results("SELECT display_name, user_login FROM wp2_users WHERE id=$id_author");
+				// print_r($users);
+				$login;
+				foreach ($users as $user_obj) {
+					echo '<li>' . $user_obj->display_name . '</li>';
+					$login = $user_obj->user_login;
+				}
 
-			$id_author = $obj->id_author;
-			$users = $mydb->get_results("SELECT display_name FROM wp2_users WHERE id=$id_author");
-			// print_r($users);
+				$img_src = '../img/' . $apprenant->photo;
+				echo '<li><img src="' . $img_src .'"></li>';
+				echo '<li>' . $apprenant->about . '</li>';
 
-			foreach ($users as $user_obj) {
-				echo '<li>' . $user_obj->display_name . '</li>';
-			}
-			echo '<li>' . $obj->photo . '</li>';
-			echo '<li>' . $obj->about . '</li>';
+				//je passe l'id dans l'url
+				// echo '<li><a href="../wp-content/themes/mydynamico/apprenant.php?id=' . $id_author . '">Voir plus</a></li>';
+				// echo '<li><a href="../apprenant.php?id=' . $id_author . '">Voir plus</a></li>';
+				echo '<li><a href="../apprenant/' . $login . '/">Voir plus</a></li>';
+				
+			echo '</ul>';
 
-			echo "</ul>";
 		endforeach;
 		?>
 

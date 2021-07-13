@@ -10,7 +10,59 @@
 :root {
 	--dynamico--header-background-color: #bd2d2d;
     --dynamico--site-title-color: #3c434a;
+
+	--mydynamico-red: #bd2d2d;
+	--mydynamico-black: #3c434a;
 }
+/* post wrapper */
+.my-post-wrapper {
+	display: flex;
+	flex-flow: row wrap;
+	justify-content: center;
+	align-items: center;
+	max-width: 90%;
+	margin: 0 auto;
+	gap: 2%;
+	padding: 2%;
+}
+
+/*  */
+.my-page-header {
+	padding-top: 2%;
+}
+.my-page-header h1 {
+	border-bottom: 5px solid;
+	border-color: var(--mydynamico-black);
+}
+.my-post-column {
+	min-width: 150px;
+	max-width: 200px;
+	/* max-width: 20vw !important; */
+	border: 1px solid var(--mydynamico-red);
+	margin-bottom: 2% !important;
+}
+.my-post-column article {
+    display: flex;
+    flex-direction: column;
+	text-align: center;
+	padding: 2% 0;
+}
+.my-post-column article img {
+    align-self: center;
+}
+.entry-meta {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-around;
+}
+.entry-meta span::after {
+	content: '';
+}
+.nav-links {
+	display: flex;
+	justify-content: center;
+}
+
 
 @media only screen and (min-width: 480px) {
 	.site-content {
@@ -34,3 +86,4 @@
 		padding: 0;
 	}
 }
+

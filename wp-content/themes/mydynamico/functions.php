@@ -166,3 +166,11 @@ function dupliquer_le_post( $actions, $post ) {
     return $actions;
 }
 add_filter( 'post_row_actions', 'dupliquer_le_post', 10, 2 );
+
+
+
+function mydynamico_entry_meta() {
+    $postmeta  = '<span class="posted-on"><a href="' .get_post_meta(get_the_ID(), 'github', true) . '">github</a></span>';
+    $postmeta .= '<span class="posted-on"><a href="' .get_post_meta(get_the_ID(), 'linkedin', true) . '">linkedin</a></span>';
+    echo '<div class="entry-meta">' . $postmeta . '</div>';
+}

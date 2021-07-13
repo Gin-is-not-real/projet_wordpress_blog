@@ -1,0 +1,9 @@
+- mydynamico/page-la-promo.php 
+    - template name: Page Promo
+    - used by page La Promo 
+    
+        - recupere les users de la table wp2_users 
+            - pour chaque users:
+                - affiche le champ display_name
+                - liste les champs about, photo de la table wp2_testapprenants en passant par l'id_users de l'user
+                TODO un lien vers la page apprenant

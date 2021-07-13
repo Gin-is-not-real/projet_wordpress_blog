@@ -1,24 +1,13 @@
-<?php 
+<?php
 /*
-Template Name: Page Apprenant
+	
 */
-?>
+if(isset($_GET['id'])) {
+	echo $_GET['id'];
+	$id = $_GET['id'];
+	$mydb = new wpdb('admin', 'admin', 'wp2_bdd', 'localhost');
+	$user = $mydb->get_results("SELECT * FROM wp2_apprenants WHERE id_apprenant=$id");
+	
+}
 
--->\mydynamico\apprenant.php
-<?php 
 
-get_header();
-
-while ( have_posts() ) :
-	the_post();
-
-	get_template_part( 'template-parts/page/content', 'page' );
-
-	// If comments are open or we have at least one comment, load up the comment template.
-	if ( comments_open() || get_comments_number() ) :
-		comments_template();
-	endif;
-
-endwhile;
-
-get_footer();
