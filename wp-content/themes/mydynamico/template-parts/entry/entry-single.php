@@ -22,6 +22,7 @@
 		//je recupere l'apprenant_id du CTP apprenant
 		$user_id = get_post_meta(get_the_ID(), 'apprenant_id', true);
 		mydynamico_display_projects($user_id);
+		echo '<hr>';
 
 		//liens vers next/prev
 		wp_link_pages();
