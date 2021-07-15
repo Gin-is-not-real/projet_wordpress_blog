@@ -1,10 +1,10 @@
 <?php 
 /*
-Template Name: Page Apprenants
+Template Name: Page Promo
 */
 ?>
 
--->\mydynamico\apprenants.php
+-->\mydynamico\promo.php
 <?php 
 
 get_header();

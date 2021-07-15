@@ -13,6 +13,8 @@
 
 	--mydynamico-red: #bd2d2d;
 	--mydynamico-black: #3c434a;
+	--mydynamico-grey: #eeeeee98;
+	--mydynamico-shadow: #a7a5a58c;
 }
 /* post wrapper */
 .my-post-wrapper {
@@ -72,6 +74,31 @@
 	padding: 2% 0;
 }
 
+/*  */
+.project-container {
+	max-width: 70vw;
+	margin: 2% auto;
+	background-color: var(--mydynamico-grey);
+	;
+	padding: 1% 2%;
+	border-radius: 1px;
+	box-shadow: 1px 1px 1px var(--mydynamico-shadow);
+}
+
+.project-container h3 {
+	border-bottom: 2px solid;
+	border-color: var(--mydynamico-black);
+}
+.container-flex-row {
+	display: flex;
+	flex-direction: row;
+	gap: 2%;
+}
+.container-flex-row > div {
+	max-width: 70%;
+}
+
+/* MEDIA QUERIES */
 @media only screen and (min-width: 480px) {
 	.site-content {
 		padding: 0;

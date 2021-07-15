@@ -12,7 +12,7 @@ get_header();
 
 if ( have_posts() ) :
 	?>
-<!-- *wp-content\themes\mydynamico\archive.php* -->
+*wp-content\themes\mydynamico\archive.php*
 
 	<div id="post-wrapper" class="post-wrapper my-post-wrapper">
 	<?php the_title( '<h1 class="page-title entry-title">', '</h1>' ); ?>

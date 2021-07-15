@@ -85,23 +85,6 @@ function wpm_add_taxonomies() {
 		'rewrite'           => array( 'slug' => 'technos' ),
 	);
 	register_taxonomy( 'technos', 'projets', $args_technos );
-
-	
-	// $labels_cat_serie = array(
-	// 	'name'                       => _x( 'Catégories de série', 'taxonomy general name'),
-	// 	'singular_name'              => _x( 'Catégories de série', 'taxonomy singular name'),
-	// 	'search_items'               => __( 'Rechercher une catégorie'),
-	// 	'popular_items'              => __( 'Catégories populaires'),
-	// 	'all_items'                  => __( 'Toutes les catégories'),
-	// 	'edit_item'                  => __( 'Editer une catégorie'),
-	// 	'update_item'                => __( 'Mettre à jour une catégorie'),
-	// 	'add_new_item'               => __( 'Ajouter une nouvelle catégorie'),
-	// 	'new_item_name'              => __( 'Nom de la nouvelle catégorie'),
-	// 	'add_or_remove_items'        => __( 'Ajouter ou supprimer une catégorie'),
-	// 	'choose_from_most_used'      => __( 'Choisir parmi les catégories les plus utilisées'),
-	// 	'not_found'                  => __( 'Pas de catégories trouvées'),
-	// 	'menu_name'                  => __( 'Catégories de série'),
-	// );
 }
 
 
@@ -168,9 +151,32 @@ function dupliquer_le_post( $actions, $post ) {
 add_filter( 'post_row_actions', 'dupliquer_le_post', 10, 2 );
 
 
-
 function mydynamico_entry_meta() {
     $postmeta  = '<span class="posted-on"><a href="' .get_post_meta(get_the_ID(), 'github', true) . '">github</a></span>';
     $postmeta .= '<span class="posted-on"><a href="' .get_post_meta(get_the_ID(), 'linkedin', true) . '">linkedin</a></span>';
+
     echo '<div class="entry-meta">' . $postmeta . '</div>';
+}
+
+//
+function mydynamico_display_projects($id) {
+    	//je cherche les projets par l'user_id
+		$mydb = new wpdb('admin', 'admin', 'wp2_bdd', 'localhost');
+		$projets = $mydb->get_results("SELECT * FROM wp2_projects WHERE user_id=$id");
+        echo '<h3>Projets </h3>';
+
+		if(count($projets) != 0) {
+			foreach($projets as $proj) {
+                $_POST['project_title'] = $proj->project_title;
+                $_POST['project_describe'] = $proj->project_describe;
+                $_POST['project_image'] = $proj->project_image;
+                $_POST['project_github'] = $proj->project_github;
+                $_POST['project_link'] = $proj->project_link;
+
+                get_template_part('template-parts/post/project');
+			}
+		}
+        else {
+            echo '<h3>Aucun projet a afficher</h3>';
+        }
 }

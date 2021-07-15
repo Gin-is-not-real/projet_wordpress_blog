@@ -1,6 +1,6 @@
 <?php 
 /*
-Template Name: Page Promo
+Template Name: Page La Promo
 */
 ?>
 
@@ -51,7 +51,6 @@ Template Name: Page Promo
 
 		foreach($apprenants as $apprenant) : 
 			echo '<ul>';
-
 				//$apprenant est un un objet stdClass. ces index sont les noms des colonnes 
 				// print_r($apprenant);
 				$id_author = $apprenant->id_author;

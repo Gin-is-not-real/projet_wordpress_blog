@@ -6,7 +6,7 @@
  * @package Dynamico
  */
 ?>
-<!-- *template-parts\post\content-above-title.php* -->
+*template-parts\post\content-above-title.php*
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 
 

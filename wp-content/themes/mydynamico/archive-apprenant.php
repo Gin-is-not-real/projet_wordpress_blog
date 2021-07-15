@@ -1,6 +1,6 @@
 <?php
 /**
- * Template Name: Grille Apprenants
+ * Template Name: Archive apprenants
  *
  * @link https://developer.wordpress.org/themes/basics/template-hierarchy/
  *
@@ -12,7 +12,7 @@ get_header();
 
 if ( have_posts() ) :
 	?>
-<!-- *wp-content\themes\mydynamico\archive-apprenant.php* -->
+*wp-content\themes\mydynamico\archive-apprenant.php*
 
 	<header class="page-header entry-header my-page-header">
 		<h1 class="page-title entry-title">La Promo</h1>
