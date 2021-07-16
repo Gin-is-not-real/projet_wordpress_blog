@@ -1,0 +1,69 @@
+/////////////////////////////////////////////////////////
+//COMMENT FAIRE:
+
+- RECHERCHER LES ARTICLES D UNE CATEGORIE DONNEE
+    -SELECT post_title FROM wp_posts p JOIN wp_term_relationships r ON r.object_id = p.ID JOIN wp_term_taxonomy t ON r.term_taxonomy_id = t.term_taxonomy_id JOIN wp_terms terms ON terms.term_id = t.term_id WHERE t.taxonomy ='category' AND terms.name = 'NomCatégorie' AND p.post_type = 'post';
+
+- SLIDER AVIS DES APPRENANTS AVEC EVAL SUR 5
+    - WIDGET PREVIEW ?
+    - je trouve le code du widget REVIEW ici: 
+        -> wordpress2\wp-content\plugins\elementor-pro\modules\slides\widgets\slides.php
+        -> ligne 1246
+
+/////////////////////////////////////////////////////////  
+CONSIGNE:
+    -réaliser le blog de la promo en conservant les articles.
+
+    - pages: 
+        - accueil 
+            - entete de bienvenue 
+            - mise en avant des 3 derniers articles
+            - un slider d'avis des apprenants sur la formation avec une éval sur 5. 
+
+        - la promo
+            - grille qui liste les apprenants 
+                - photo 
+                - a propos 
+                - en savoir plus
+
+        - détail d'un apprenant
+            - photo
+            - a propos 
+            - lien git hub
+            - lien linkedin
+
+            - 3 meilleurs projets
+                - capture du projet 
+                - description
+                - Technologies utilisées
+                - lien repo github 
+                - lien vers site hébergé 
+
+        - les technos 
+            - grille des techno abordées durenat la form 
+        
+        - nos présentations
+            - liste des présentation du matin avec possibilité de dl les documents (pdf, power point)
+
+        - nos articles
+            - grille des neufs derniers articles
+                - image a la une 
+                - description 
+                - lien 'lire la suite' 
+                - an bas de la grille: bouton 'charger plus d'articles' qui chargera les 9 articles suivznts
+                
+                - liste des categories des articles
+                    - lorsqu'on clique sur une categorie on charge les 9 derniers arcticles de la cat avec en bas de liste le bouton ' cahrger plus d'articles dans cette categorie'
+
+        - proceder:
+            - partir d'un theme existant et creer un child, mais les fonctionnalitées devront etre ajoutée soit avec le fichier functions.php du child ou par divers pluggins que vous aurez développés. Ne pas utiliser de plug CTP ou ACF 
+            - si vous creer le thème, vous pouvez utiliser Bedrock et Timber 
+
+        
+LES ETAPES:
+    - installer worpress 
+    - je parametre bien le .gitignore pour l'adapter a WP (? trouver ce que c'est)
+    - creer maquette et faire valider
+    - choisir si depart d'un theme existant ou si je le crée 
+    - dev et integrer  les fonctionnalitées 
+    - mettre en ligne 
