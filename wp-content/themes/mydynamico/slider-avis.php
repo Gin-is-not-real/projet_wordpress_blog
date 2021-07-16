@@ -1,6 +1,6 @@
 <?php 
 ?>
-<!-- *slider-avis.php* -->
+*slider-avis.php*
 <hr>
 <header><h3>Les avis des apprenants</h3></header>
 <div class="my-slider-container">

@@ -1,18 +1,18 @@
 ACCUEIL 
-    - page statique: Accueil 
-    - modele: Page Accueil 
-    - file name: accueil.php
+    - page statique:    Accueil 
+    - modele:           Page Accueil 
+    - file name:        accueil.php
 
         - accueil.php 
-            - template-parts/page/content-page.php -> le content de l'editeur wp
+            - template-parts/page/content-page.php  ->  le content de l'editeur wp
             - slider-avis.php
     
 LA PROMO 
-    - modele: Archives apprenants
-    - file name: archive-apprenant.php
+    - modele:       Archives apprenants
+    - file name:    archive-apprenant.php
 
         - archive-apprenant.php 
-            - template-parts\blog\content-two-column-grid.php -> la card de l'apprenant 
+            - template-parts\blog\content-two-column-grid.php   ->  la card de l'apprenant 
                 - template_parts/blog/entry/entry-excerpt.php
                 - button --> APPRENANT 
 
@@ -25,10 +25,15 @@ APPRENANT
 
         - template-parts\post\project.php *3 
 
+NOS ARTICLES
+    - modele:       default 
+    - file name:    template-parts/page/content-page.php
+
+        - template-parts/page/content-page.php  ->  apelle the_content() de l'editeur wp
+
 
 /////////////////////////////////////////
 //OLD
-
 - mydynamico/page-la-promo.php 
     - template name: Page Promo
     - used by page La Promo 

@@ -10,7 +10,7 @@
 
 get_header();
 ?>
--->wp-content\themes\mydynamico\archive-projets.php
+*wp-content\themes\mydynamico\archive-projets.php*
 <?php
 if ( have_posts() ) :
 	?>

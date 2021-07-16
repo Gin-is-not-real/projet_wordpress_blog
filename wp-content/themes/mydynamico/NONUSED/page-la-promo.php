@@ -7,7 +7,7 @@ Template Name: Page La Promo
 <?php get_header(); ?>
 
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
--->mydynamico/page-la-promo.php 
+mydynamico/page-la-promo.php
 <?php 
 	echo '<br>the_ID: ';
 	the_ID();

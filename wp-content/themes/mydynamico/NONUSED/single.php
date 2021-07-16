@@ -9,7 +9,9 @@
  */
 
 get_header();
-
+?>
+*wp-content\themes\mydynamico\single.php*
+<?php
 while ( have_posts() ) :
 	the_post();
 

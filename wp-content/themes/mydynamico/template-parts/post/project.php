@@ -1,7 +1,7 @@
 <?php
 
 ?>
-<!-- *template-parts\post\project.php* -->
+*template-parts\post\project.php*
 
 <?php
 
