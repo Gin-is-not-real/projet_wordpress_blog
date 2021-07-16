@@ -6,7 +6,7 @@
  * @package Dynamico
  */
 ?>
-<!-- *mydynamico/template-parts\blog\content-two-column-grid.php* -->
+*mydynamico/template-parts\blog\content-two-column-grid.php*
 <div class="post-column my-post-column">
 
 	<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>

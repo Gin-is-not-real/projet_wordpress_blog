@@ -1,6 +1,33 @@
+ACCUEIL 
+    - page statique: Accueil 
+    - modele: Page Accueil 
+    - file name: accueil.php
+
+        - accueil.php 
+            - template-parts/page/content-page.php -> le content de l'editeur wp
+            - slider-avis.php
+    
+LA PROMO 
+    - modele: Archives apprenants
+    - file name: archive-apprenant.php
+
+        - archive-apprenant.php 
+            - template-parts\blog\content-two-column-grid.php -> la card de l'apprenant 
+                - template_parts/blog/entry/entry-excerpt.php
+                - button --> APPRENANT 
+
+APPRENANT 
+    - modele: 
+    - file name: 
+
+        - template-parts\post\content-above-title.php 
+        - template-parts\entry\entry-single.php
+
+        - template-parts\post\project.php *3 
 
 
-
+/////////////////////////////////////////
+//OLD
 
 - mydynamico/page-la-promo.php 
     - template name: Page Promo
