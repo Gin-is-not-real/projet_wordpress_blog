@@ -16,6 +16,35 @@
 	--mydynamico-grey: #eeeeee98;
 	--mydynamico-shadow: #a7a5a58c;
 }
+
+/* ACCUEIL */
+.my-lasts-posts {
+	display: flex;
+	justify-content: space-between;
+	gap: 1%;
+}
+.my-lasts-posts li{
+	background-color: var(--mydynamico-grey);
+	border-radius: 1px;
+	box-shadow: 1px 1px 1px var(--mydynamico-shadow);
+	padding: 2%;
+}
+
+.my-slider-container {
+	display: flex;
+	flex-direction: row;
+	gap: 2%;
+
+	margin: 2% auto;
+	text-align: center;
+}
+.my-slider {
+	width: 30vw;
+	border: 1px solid black;
+	padding-bottom: 2%;
+}
+
+
 /* post wrapper */
 .my-post-wrapper {
 	display: flex;

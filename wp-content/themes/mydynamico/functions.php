@@ -180,3 +180,52 @@ function mydynamico_display_projects($id) {
             echo '<h3>Aucun projet a afficher</h3>';
         }
 }
+
+//
+function mydynamico_slider_request($user_id) {
+    //je cherche les projets par l'user_id
+    $mydb = new wpdb('admin', 'admin', 'wp2_bdd', 'localhost');
+    $data = $mydb->get_results("SELECT id_apprenant, apprenant_name, apprenant_avis_formation, apprenant_note_formation FROM wp2_apprenants WHERE id_apprenant=$user_id");
+
+    return $data;
+}
+
+function mydynamico_get_opinions($num) {
+    $users = array();
+
+    for($i = 0; $i <= $num; $i++) {
+        $user_data = mydynamico_slider_request(random_int(3, 14));
+
+        $user = array();
+        foreach($user_data as $obj) {
+            $user['id_apprenant'] = $obj->id_apprenant;
+            $user['apprenant_name'] = $obj->apprenant_name;
+            $user['apprenant_avis_formation'] = $obj->apprenant_avis_formation;
+            $user['apprenant_note_formation'] = $obj->apprenant_note_formation;
+        }
+        array_push($users, $user);
+    }
+
+    return $users;
+}
+
+function mydynamico_display_sliders($num) {
+    $opinions = mydynamico_get_opinions($num);
+    // print_r($opinions);
+
+    foreach($opinions as $opinion) {
+        // print_r($opinion);
+
+        $id = $opinion['id_apprenant'];
+        echo '<div class="my-slider" id="' . $id . '">';
+            echo '<header><h4>' . $opinion['apprenant_name'] . '</h4></header>';
+            echo '<div>' . $opinion['apprenant_avis_formation'] . '</div>';
+
+            //note
+            echo '<div>' . $opinion['apprenant_note_formation'] . '/5</div>';
+        echo '</div>';
+    }
+}
+
+
+

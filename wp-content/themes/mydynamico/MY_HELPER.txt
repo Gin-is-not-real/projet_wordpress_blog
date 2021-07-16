@@ -1,3 +1,7 @@
+
+
+
+
 - mydynamico/page-la-promo.php 
     - template name: Page Promo
     - used by page La Promo 
@@ -7,3 +11,4 @@
                 - affiche le champ display_name
                 - liste les champs about, photo de la table wp2_testapprenants en passant par l'id_users de l'user
                 TODO un lien vers la page apprenant
+
