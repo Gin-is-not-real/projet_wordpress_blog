@@ -8,7 +8,7 @@
 ?>
 
 <div class="entry-content entry-excerpt">
-	*template_parts/blog/entry/entry-excerpt.php*
+	<!-- *template_parts/blog/entry/entry-excerpt.php* -->
 	<?php get_post_meta(get_the_ID(), 'github', true); ?>
 	<?php the_excerpt(); ?>
 	<br>

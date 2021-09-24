@@ -8,7 +8,7 @@
 ?>
 
 <div class="entry-content">
-	*template-parts\entry\entry-single.php*
+	<!-- *template-parts\entry\entry-single.php* -->
 	<hr>
 	<?php 
 		//affiche la metadonnée 'about' (la valeur du champ perso dans l'editeur wp)

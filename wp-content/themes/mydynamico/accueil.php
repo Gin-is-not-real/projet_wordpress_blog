@@ -9,7 +9,7 @@
 get_header();
 ?>
 
-*accueil.php*
+<!-- *accueil.php* -->
 
 <?php
 while ( have_posts() ) :
